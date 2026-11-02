@@ -1,0 +1,15 @@
+[Unit]
+Description=JARVIS Otonom - Server Health Check (daily)
+After=network-online.target chat.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+EnvironmentFile=/etc/jarvis-otonom.env
+Environment="JARVIS_GROQ_MODEL=openai/gpt-oss-120b"
+Environment="CHAT_URL=http://127.0.0.1:3001"
+ExecStart=/usr/bin/python3 /usr/local/bin/jarvis-otonom.py
+StandardOutput=append:/var/log/jarvis-otonom.log
+StandardError=append:/var/log/jarvis-otonom.log
+TimeoutStartSec=300

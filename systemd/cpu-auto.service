@@ -1,0 +1,17 @@
+[Unit]
+Description=CPU Auto Scaling (userspace governor, max 1512MHz)
+After=multi-user.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c '\
+  echo userspace > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor; \
+  sleep 0.3; \
+  echo 1512000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq; \
+  sleep 0.3; \
+  echo 500000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_setspeed; \
+  exit 0'
+
+[Install]
+WantedBy=multi-user.target

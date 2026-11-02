@@ -1,0 +1,45 @@
+# === Secrets (JANGAN PERNAH di-push) ===
+.env
+*.env
+.env.*
+!.env.example
+!env.example
+
+# === API Keys & Tokens ===
+*key*
+*token*
+*secret*
+!README.md
+!docs/*
+
+# === Database & Memory ===
+*.db
+*.sqlite
+*.sqlite3
+memory.db
+
+# === Logs ===
+*.log
+logs/
+/var/log/
+
+# === Backup ===
+backups/
+*.bak
+*.tar.gz
+*.zip
+
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# === Node.js ===
+node_modules/
+npm-debug.log*
+
+# === System ===
+.DS_Store
+Thumbs.db
